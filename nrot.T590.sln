@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T590", "nrot.T590\nrot.T590.csproj", "{7CD1A623-B105-4E40-BC4D-81C8B7EFB878}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T590.Gui", "nrot.T590.Gui\nrot.T590.Gui.csproj", "{7CD1A623-B105-4E40-BC4D-81C8B7EFB878}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T590.Excel", "nrot.T590.Excel\nrot.T590.Excel.csproj", "{66F6311E-097B-43BD-9CD3-299527A244BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T590.Excel.Test", "nrot.T590.Excel.Test\nrot.T590.Excel.Test.csproj", "{0056D963-10D4-483E-8AB8-62EEB2CAE645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T590.Pdf", "nrot.T590.Pdf\nrot.T590.Pdf.csproj", "{60FB82C1-6937-4FF2-B75E-D40ADA8BE38F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T590.Pdf.Test", "nrot.T590.Pdf.Test\nrot.T590.Pdf.Test.csproj", "{1ADC9211-D97D-4CF7-84C6-92D08E8F5E52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{7CD1A623-B105-4E40-BC4D-81C8B7EFB878}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CD1A623-B105-4E40-BC4D-81C8B7EFB878}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CD1A623-B105-4E40-BC4D-81C8B7EFB878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66F6311E-097B-43BD-9CD3-299527A244BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66F6311E-097B-43BD-9CD3-299527A244BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66F6311E-097B-43BD-9CD3-299527A244BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66F6311E-097B-43BD-9CD3-299527A244BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0056D963-10D4-483E-8AB8-62EEB2CAE645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0056D963-10D4-483E-8AB8-62EEB2CAE645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0056D963-10D4-483E-8AB8-62EEB2CAE645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0056D963-10D4-483E-8AB8-62EEB2CAE645}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60FB82C1-6937-4FF2-B75E-D40ADA8BE38F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60FB82C1-6937-4FF2-B75E-D40ADA8BE38F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60FB82C1-6937-4FF2-B75E-D40ADA8BE38F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60FB82C1-6937-4FF2-B75E-D40ADA8BE38F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ADC9211-D97D-4CF7-84C6-92D08E8F5E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ADC9211-D97D-4CF7-84C6-92D08E8F5E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ADC9211-D97D-4CF7-84C6-92D08E8F5E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ADC9211-D97D-4CF7-84C6-92D08E8F5E52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
