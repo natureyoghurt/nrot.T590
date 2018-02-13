@@ -1,9 +1,9 @@
 ﻿<Application x:Class="nrot.T590.Gui.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:nrot.T590"
+             xmlns:local="clr-namespace:nrot.T590.Gui"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>
