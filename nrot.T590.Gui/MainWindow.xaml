@@ -5,41 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:nrot.T590.Gui"
         xmlns:models="clr-namespace:nrot.T590.Excel.Models;assembly=nrot.T590.Excel"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d" 
-        Title="MainWindow" Loaded="Window_Loaded"><!--Height="600" Width="800"-->
+        Title="MainWindow" Loaded="Window_Loaded">
+    <!--Height="600" Width="800"-->
+    <Window.Resources>
+        <local:DateConverter x:Key="MyDateConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="202*"/>
         </Grid.RowDefinitions>
-        <Button Content="Refresh Record"   
+        <Label HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Row="0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="16" Foreground="Green" Content="Patientenliste &#10;Adelheid Schneiter" />
+        <Button Content="Generiere Rechnung"   
                 Name="BtnRefreshRecord" Grid.Row="0"  
                 FontSize="16" Click="btnRefreshRecord_Click" Margin="342,1,26,5"/>
         <DataGrid Name="DataGridPatient" AutoGenerateColumns="False" ColumnWidth="*"  RowBackground="WhiteSmoke"  
-                  CellEditEnding="dataGridStudent_CellEditEnding" RowEditEnding="dataGridStudent_RowEditEnding"  
-                  SelectionChanged="dataGridStudent_SelectionChanged" Grid.Row="2" Background="LightBlue">
+                  CellEditEnding="DataGridPatient_CellEditEnding" RowEditEnding="DataGridPatient_RowEditEnding"  
+                  SelectionChanged="DataGridPatient_SelectionChanged" Grid.Row="1" Background="LightBlue">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="20"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Strasse" Binding="{Binding Strasse}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Plz" Binding="{Binding Plz}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Ort" Binding="{Binding Ort}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Geburtsdatum" Binding="{Binding Geburtsdatum}"></DataGridTextColumn>
-                <!--<DataGridTextColumn Header="Geschlecht" Binding="{Binding Geschlecht}"></DataGridTextColumn>-->
-                <DataGridComboBoxColumn Header="Geschlecht" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type models:GeschlechtType}}}" SelectedItemBinding="{Binding Geschlecht}"></DataGridComboBoxColumn>
-                <DataGridTextColumn Header="PatientenNr" Binding="{Binding PatientenNr}"></DataGridTextColumn>
-                <DataGridTextColumn Header="AhvNr" Binding="{Binding AhvNr}"></DataGridTextColumn>
-                <DataGridTextColumn Header="VekaNr" Binding="{Binding VekaNr}"></DataGridTextColumn>
-                <DataGridTextColumn Header="VersichertenNr" Binding="{Binding VersichertenNr}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Kanton" Binding="{Binding Kanton}"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Kopie" Binding="{Binding Kopie}"></DataGridCheckBoxColumn>
-                <!--<DataGridTextColumn Header="VerguetungsArt" Binding="{Binding VerguetungsArt}"></DataGridTextColumn>-->
-                <DataGridComboBoxColumn Header="VerguetungsArt" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type models:VerguetungsartType}}}" SelectedItemBinding="{Binding VerguetungsArt}"></DataGridComboBoxColumn>
-                <DataGridTextColumn Header="VertragsNr" Binding="{Binding VertragsNr}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="20" Visibility="Collapsed" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" />
+                <DataGridTextColumn Header="Strasse" Binding="{Binding Strasse}" />
+                <DataGridTextColumn Header="Plz" Binding="{Binding Plz}" />
+                <DataGridTextColumn Header="Ort" Binding="{Binding Ort}" />
+                <DataGridTextColumn Header="Geburtsdatum" Binding="{Binding Geburtsdatum, StringFormat={}\{0:dd.MM.yyyy\}, Converter={StaticResource MyDateConverter}}" />
+                <DataGridComboBoxColumn Header="Geschlecht" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type models:GeschlechtType}}}" SelectedItemBinding="{Binding Geschlecht}" />
+                <DataGridTextColumn Header="PatientenNr" Binding="{Binding PatientenNr}" />
+                <DataGridTextColumn Header="AhvNr" Binding="{Binding AhvNr}" />
+                <DataGridTextColumn Header="VekaNr" Binding="{Binding VekaNr}" />
+                <DataGridTextColumn Header="VersichertenNr" Binding="{Binding VersichertenNr}" />
+                <DataGridTextColumn Header="Kanton" Binding="{Binding Kanton}" />
+                <DataGridCheckBoxColumn Header="Kopie" Binding="{Binding Kopie}" />
+                <DataGridComboBoxColumn Header="VerguetungsArt" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type models:VerguetungsartType}}}" SelectedItemBinding="{Binding VerguetungsArt}" />
+                <DataGridTextColumn Header="VertragsNr" Binding="{Binding VertragsNr}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label  HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Row="0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="16" Foreground="Green" Content="Showing All Student Information"/>
     </Grid>
 </Window>

@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
+using Microsoft.Win32;
 using nrot.T590.Excel;
 using nrot.T590.Excel.Models;
 
@@ -11,7 +15,7 @@ namespace nrot.T590.Gui
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         // TODO: 2config!
         //private const string ExcelFilePath = @"Files/Patientenliste.xlsx";
@@ -43,44 +47,218 @@ namespace nrot.T590.Gui
         /// </summary>  
         /// <param name="sender"></param>  
         /// <param name="e"></param>  
-        private void dataGridStudent_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        private void DataGridPatient_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             try
             {
-                //FrameworkElement stud_ID = dataGridStudent.Columns[0].GetCellContent(e.Row);
-                //if (stud_ID.GetType() == typeof(TextBox))
-                //{
-                //    _stud.StudentID = Convert.ToInt32(((TextBox)stud_ID).Text);
-                //}
+                Mouse.OverrideCursor = Cursors.Wait;
 
-                //FrameworkElement stud_Name = dataGridStudent.Columns[1].GetCellContent(e.Row);
-                //if (stud_Name.GetType() == typeof(TextBox))
-                //{
-                //    _stud.Name = ((TextBox)stud_Name).Text;
-                //}
+                for (var i = 0; i < 16; i++)
+                {
+                    object o = DataGridPatient.Columns[i].GetCellContent(e.Row);
+                    switch (i)
+                    {
+                        case 0: // Id
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.Id = Convert.ToInt32(((TextBox) o).Text);
+                            }
 
-                //FrameworkElement stud_Email = dataGridStudent.Columns[2].GetCellContent(e.Row);
-                //if (stud_Email.GetType() == typeof(TextBox))
-                //{
-                //    _stud.Email = ((TextBox)stud_Email).Text;
-                //}
+                            break;
+                        }
+                        case 1: // Name
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.Name = ((TextBox) o).Text;
+                            }
 
-                //FrameworkElement stud_Class = dataGridStudent.Columns[3].GetCellContent(e.Row);
-                //if (stud_Class.GetType() == typeof(TextBox))
-                //{
-                //    _stud.Class = ((TextBox)stud_Class).Text;
-                //}
+                            break;
+                        }
+                        case 2: // Vorname
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.Vorname = ((TextBox) o).Text;
+                            }
 
-                //FrameworkElement stud_Address = dataGridStudent.Columns[4].GetCellContent(e.Row);
-                //if (stud_Address.GetType() == typeof(TextBox))
-                //{
-                //    _stud.Address = ((TextBox)stud_Address).Text;
-                //}
+                            break;
+                        }
+                        case 3: // Strasse
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.Strasse = ((TextBox) o).Text;
+                            }
 
+                            break;
+                        }
+                        case 4: // Plz
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.Plz = Convert.ToInt32(((TextBox) o).Text);
+                            }
+                            break;
+                        }
+                        case 5: // Ort
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.Ort = ((TextBox) o).Text;
+                            }
+
+                            break;
+                        }
+                        case 6: // Geburtsdatum
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                var content = ((TextBox) o).Text;
+
+                                if (DateTime.TryParse(content, out DateTime contentAsDateTime))
+                                {
+                                    _patient.Geburtsdatum = contentAsDateTime;
+                                }
+                                else
+                                {
+                                    _patient.Geburtsdatum = null;
+                                }
+                            }
+
+                            break;
+                        }
+                        case 7: // Geschlecht
+                        {
+                            if (o.GetType().BaseType == typeof(ComboBox))
+                            {
+                                var content = ((ComboBox) o).Text.ToUpper();
+
+                                switch (content)
+                                {
+                                    case "M":
+                                    {
+                                        _patient.Geschlecht = GeschlechtType.M;
+                                        break;
+                                    }
+                                    case "W":
+                                    {
+                                        _patient.Geschlecht = GeschlechtType.W;
+                                        break;
+                                    }
+                                    default:
+                                    {
+                                        throw new Exception($"No matching GeschlechtType '{content}' found.");
+                                    }
+                                }
+                            }
+
+                            break;
+                        }
+                        case 8: // PatientenNr
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.PatientenNr = ((TextBox) o).Text;
+                            }
+
+                            break;
+                        }
+                        case 9: // AhvNr
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.AhvNr = ((TextBox) o).Text;
+                            }
+
+                            break;
+                        }
+                        case 10: // VekaNr
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.VekaNr = ((TextBox) o).Text;
+                            }
+
+                            break;
+                        }
+                        case 11: // VersichertenNr
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.VersichertenNr = ((TextBox) o).Text;
+                            }
+
+                            break;
+                        }
+                        case 12: // Kanton
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.Kanton = ((TextBox) o).Text;
+                            }
+
+                            break;
+                        }
+                        case 13: // Kopie
+                        {
+                            if (o.GetType() == typeof(CheckBox))
+                            {
+                                _patient.Kopie = Convert.ToBoolean(((CheckBox) o).IsChecked);
+                            }
+
+                            break;
+                        }
+                        case 14: // VerguetungsArt
+                        {
+                            if (o.GetType().BaseType == typeof(ComboBox))
+                            {
+                                var content = ((ComboBox) o).Text.ToUpper();
+
+                                switch (content)
+                                {
+                                    case "TG":
+                                    {
+                                        _patient.VerguetungsArt = VerguetungsartType.Tg;
+                                        break;
+                                    }
+                                    case "TP":
+                                    {
+                                        _patient.VerguetungsArt = VerguetungsartType.Tp;
+                                        break;
+                                    }
+                                    default:
+                                    {
+                                        throw new Exception($"No matching VerguetungsartType '{content}' found.");
+                                    }
+                                }
+                            }
+
+                            break;
+                        }
+                        case 15: // VertragsNr
+                        {
+                            if (o.GetType() == typeof(TextBox))
+                            {
+                                _patient.VertragsNr = ((TextBox) o).Text;
+                            }
+                            break;
+                        }
+                        default:
+                        {
+                            throw new Exception($"Column number '{i}' does not exist in DataGridPatient!");
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Mouse.OverrideCursor = null;
             }
         }
 
@@ -89,26 +267,35 @@ namespace nrot.T590.Gui
         /// </summary>  
         /// <param name="sender"></param>  
         /// <param name="e"></param>  
-        private void dataGridStudent_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        private void DataGridPatient_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             try
             {
+                Mouse.OverrideCursor = Cursors.Wait;
+
                 var isSave = _excel.StorePatientRecordInExcelAsync(_patient).Result;
 
                 if (isSave)
                 {
-                    MessageBox.Show("Patient record saved successfully.");
+                    //MessageBox.Show("Patient record saved successfully.");
+                    GetPatientRecords();
                 }
                 else
                 {
-                    MessageBox.Show("Error problem occured.");
+                    throw new Exception("Error while saving patient record!");
+                    //MessageBox.Show("Error problem occured.");
                 }
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace, ex.Message);
             }
-
+            finally
+            {
+                Mouse.OverrideCursor = null;
+            }
         }
 
         /// <summary>  
@@ -116,24 +303,41 @@ namespace nrot.T590.Gui
         /// </summary>  
         /// <param name="sender"></param>  
         /// <param name="e"></param>  
-        private void dataGridStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DataGridPatient_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _patient = DataGridPatient.SelectedItem as Patient;
+            try
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+                _patient = DataGridPatient.SelectedItem as Patient;
+            }
+            catch (Exception)
+            {
+                // TODO: ExceptionHandling?
+                throw;
+            }
+            finally
+            {
+                Mouse.OverrideCursor = null;
+            }
         }
 
         private void GetPatientRecords()
         {
-            _excel = new ExcelConnector(ExcelFilePath);
-
             try
             {
+                Mouse.OverrideCursor = Cursors.Wait;
+
+                _excel = new ExcelConnector(ExcelFilePath);
                 DataGridPatient.ItemsSource = _excel.ReadAllPatientsFromExcelAsync().Result;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                Mouse.OverrideCursor = null;
+            }
         }
-
     }
 }

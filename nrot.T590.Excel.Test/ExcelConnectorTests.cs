@@ -10,7 +10,8 @@ namespace nrot.T590.Excel.Test
     [TestClass]
     public class ExcelConnectorTests
     {
-        private static readonly string ExcelFilePath = @"Files/Patientenliste.xlsx";
+        //private static readonly string ExcelFilePath = @"Files/Patientenliste.xlsx";
+        private static readonly string ExcelFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}/nrot.T590/Patientenliste.xlsx";
 
         [TestMethod]
         public async Task ReadAllPatientsFromExcelAsyncTest()

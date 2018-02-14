@@ -10,7 +10,7 @@ namespace nrot.T590.Excel.Models
         public string Strasse { get; set; }
         public int Plz { get; set; }
         public string Ort { get; set; }
-        public DateTime Geburtsdatum { get; set; }
+        public DateTime? Geburtsdatum { get; set; }
         public GeschlechtType Geschlecht { get; set; }
         public string PatientenNr { get; set; }
         public string AhvNr { get; set; }

@@ -71,7 +71,8 @@ namespace nrot.T590.Excel
                         Strasse = reader["Strasse"].ToString(),
                         Plz = Convert.ToInt32(reader["Plz"]),
                         Ort = reader["Ort"].ToString(),
-                        Geburtsdatum = Convert.ToDateTime(reader["Geburtsdatum"]),
+                        //Geburtsdatum = Convert.ToDateTime(reader["Geburtsdatum"]),
+                        Geburtsdatum = (DateTime?) reader["Geburtsdatum"],
                         Geschlecht = Convert.ToChar(reader["Geschlecht"]).Equals('m') ? GeschlechtType.M : GeschlechtType.W,
                         PatientenNr = reader["PatientenNr"].ToString(),
                         AhvNr = reader["AhvNr"].ToString(),
@@ -112,60 +113,67 @@ namespace nrot.T590.Excel
                 Connection = conn,
                 CommandText = !IsPatientRecordExistingAsync(patient).Result
                     //? "INSERT INTO [Patienten$] VALUES (@Id, @Name, @Vorname, @Strasse, @Plz, @Ort, @Geburtsdatum, @Geschlecht, @PatientenNr, @AhvNr, @VekaNr, @VersichertenNr, @Kanton, @Kopie, @VerguetungsArt, @VertragsNr)"
-                    //? "INSERT INTO [Patienten$](Id, Name, Vorname, Strasse, Plz, Ort, Geburtsdatum, Geschlecht, PatientenNr, AhvNr, VekaNr, VersichertenNr, Kanton, Kopie, VerguetungsArt, VertragsNr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-                    ? "INSERT INTO [Patienten$](Id, Name, Vorname, Strasse, Plz, Ort, Geschlecht, PatientenNr, AhvNr, VekaNr, VersichertenNr, Kanton, Kopie, VerguetungsArt, VertragsNr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                    ? "INSERT INTO [Patienten$](Id, Name, Vorname, Strasse, Plz, Ort, Geburtsdatum, Geschlecht, PatientenNr, AhvNr, VekaNr, VersichertenNr, Kanton, Kopie, VerguetungsArt, VertragsNr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                    //? "INSERT INTO [Patienten$](Id, Name, Vorname, Strasse, Plz, Ort, Geschlecht, PatientenNr, AhvNr, VekaNr, VersichertenNr, Kanton, Kopie, VerguetungsArt, VertragsNr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                     //: "UPDATE [Patienten$] SET Name=@Name, Vorname=@Vorname, Strasse=@Strasse, Plz=@Plz, Ort=@Ort, Geburtsdatum=@Geburtsdatum, Geschlecht=@Geschlecht, PatientenNr=@PatientenNr, AhvNr=@AhvNr, VekaNr=@VekaNr, VersichertenNr=@VersichertenNr, Kanton=@Kanton, Kopie=@Kopie, VerguetungsArt=@VerguetungsArt, VertragsNr=@VertragsNr WHERE Id=@Id"
                     //: "UPDATE [Patienten$] SET Name=?, Vorname=?, Strasse=?, Plz=?, Ort=?, Geburtsdatum=?, Geschlecht=?, PatientenNr=?, AhvNr=?, VekaNr=?, VersichertenNr=?, Kanton=?, Kopie=?, VerguetungsArt=?, VertragsNr=? WHERE Id=?"
                     : "UPDATE [Patienten$] SET Name=?, Vorname=?, Strasse=?, Plz=?, Ort=?, Geschlecht=?, PatientenNr=?, AhvNr=?, VekaNr=?, VersichertenNr=?, Kanton=?, Kopie=?, VerguetungsArt=?, VertragsNr=? WHERE Id=?"
             };
 
-            //cmd.Parameters.AddWithValue("Id", patient.Id);
             cmd.Parameters.Add("Id", OleDbType.Integer).Value = patient.Id;
             cmd.Parameters["Id"].IsNullable = false;
-            //cmd.Parameters.AddWithValue("Name", patient.Name);
+
             cmd.Parameters.Add("Name", OleDbType.VarChar).Value = patient.Name;
             cmd.Parameters["Name"].IsNullable = false;
-            //cmd.Parameters.AddWithValue("Vorname", patient.Vorname);
+
             cmd.Parameters.Add("Vorname", OleDbType.VarChar).Value = patient.Vorname;
             cmd.Parameters["Vorname"].IsNullable = false;
-            //cmd.Parameters.AddWithValue("Strasse", patient.Strasse);
+
             cmd.Parameters.Add("Strasse", OleDbType.VarChar).Value = patient.Strasse;
             cmd.Parameters["Strasse"].IsNullable = false;
-            //cmd.Parameters.AddWithValue("Plz", patient.Plz);
+
             cmd.Parameters.Add("Plz", OleDbType.Integer).Value = patient.Plz;
             cmd.Parameters["Plz"].IsNullable = false;
-            //cmd.Parameters.AddWithValue("Ort", patient.Ort);
+
             cmd.Parameters.Add("Ort", OleDbType.VarChar).Value = patient.Ort;
             cmd.Parameters["Ort"].IsNullable = false;
-            //cmd.Parameters.AddWithValue("Geburtsdatum", patient.Geburtsdatum.ToString("mm/dd/yyyy"));
-            //cmd.Parameters.Add("Geburtsdatum", OleDbType.VarChar).Value = patient.Geburtsdatum.ToString("mm/dd/yyyy");
-            //cmd.Parameters["Geburtsdatum"].IsNullable = true;
-            //cmd.Parameters.AddWithValue("Geschlecht", patient.Geschlecht.ToString());
+
+            //cmd.Parameters.Add("Geburtsdatum", OleDbType.Db).Value = patient.Geburtsdatum.ToString("mm/dd/yyyy");
+            if (patient.Geburtsdatum == null)
+            {
+                cmd.Parameters.AddWithValue("Geburtsdatum", patient.Geburtsdatum);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("Geburtsdatum", new DateTime(patient.Geburtsdatum.Value.Year, patient.Geburtsdatum.Value.Month, patient.Geburtsdatum.Value.Day));
+            }
+            cmd.Parameters["Geburtsdatum"].IsNullable = true;
+
             cmd.Parameters.Add("Geschlecht", OleDbType.VarChar).Value = patient.Geschlecht.ToString();
             cmd.Parameters["Geschlecht"].IsNullable = false;
-            //cmd.Parameters.AddWithValue("PatientenNr", patient.PatientenNr);
-            cmd.Parameters.Add("PatientenNr", OleDbType.VarChar).Value = patient.PatientenNr;
+
+            cmd.Parameters.Add("PatientenNr", OleDbType.VarChar).Value = patient.PatientenNr ?? Convert.DBNull;
             cmd.Parameters["PatientenNr"].IsNullable = true;
-            //cmd.Parameters.AddWithValue("AhvNr", patient.AhvNr);
-            cmd.Parameters.Add("AhvNr", OleDbType.VarChar).Value = patient.AhvNr;
+
+            cmd.Parameters.Add("AhvNr", OleDbType.VarChar).Value = patient.AhvNr ?? Convert.DBNull;
             cmd.Parameters["AhvNr"].IsNullable = true;
-            //cmd.Parameters.AddWithValue("VekaNr", patient.VekaNr);
-            cmd.Parameters.Add("VekaNr", OleDbType.VarChar).Value = patient.VekaNr;
+
+            cmd.Parameters.Add("VekaNr", OleDbType.VarChar).Value = patient.VekaNr ?? Convert.DBNull;
             cmd.Parameters["VekaNr"].IsNullable = true;
-            //cmd.Parameters.AddWithValue("VersichertenNr", patient.VersichertenNr);
-            cmd.Parameters.Add("VersichertenNr", OleDbType.VarChar).Value = patient.VersichertenNr;
+
+            cmd.Parameters.Add("VersichertenNr", OleDbType.VarChar).Value = patient.VersichertenNr ?? Convert.DBNull;
             cmd.Parameters["VersichertenNr"].IsNullable = true;
-            //cmd.Parameters.AddWithValue("Kanton", patient.Kanton);
-            cmd.Parameters.Add("Kanton", OleDbType.VarChar).Value = patient.Kanton;
+
+            cmd.Parameters.Add("Kanton", OleDbType.VarChar).Value = patient.Kanton ?? Convert.DBNull;
             cmd.Parameters["Kanton"].IsNullable = true;
-            //cmd.Parameters.AddWithValue("Kopie", patient.Kopie);
+
             cmd.Parameters.Add("Kopie", OleDbType.Boolean).Value = patient.Kopie;
             cmd.Parameters["Kopie"].IsNullable = false;
-            //cmd.Parameters.AddWithValue("VerguetungsArt", patient.VerguetungsArt.ToString());
+
             cmd.Parameters.Add("VerguetungsArt", OleDbType.VarChar).Value = patient.VerguetungsArt.ToString();
             cmd.Parameters["VerguetungsArt"].IsNullable = true;
-            //cmd.Parameters.AddWithValue("VertragsNr", patient.VertragsNr);
-            cmd.Parameters.Add("VertragsNr", OleDbType.VarChar).Value = patient.VertragsNr;
+
+            cmd.Parameters.Add("VertragsNr", OleDbType.VarChar).Value = patient.VertragsNr ?? Convert.DBNull;
             cmd.Parameters["VertragsNr"].IsNullable = true;
 
             try
@@ -179,7 +187,7 @@ namespace nrot.T590.Excel
             }
             catch (Exception ex)
             {
-                throw new Exception($"Error occured while inserting/updating patient record.", ex);
+                throw new Exception("Error occured while inserting/updating patient record.", ex);
             }
             finally
             {
