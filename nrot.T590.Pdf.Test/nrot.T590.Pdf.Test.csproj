@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\nrot.T590.Models\nrot.T590.Models.csproj">
+      <Project>{3319C886-8D45-478D-BA2A-87661DC8CBC4}</Project>
+      <Name>nrot.T590.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\nrot.T590.Pdf\nrot.T590.Pdf.csproj">
       <Project>{60fb82c1-6937-4ff2-b75e-d40ada8be38f}</Project>
       <Name>nrot.T590.Pdf</Name>

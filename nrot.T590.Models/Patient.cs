@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nrot.T590.Excel.Models
+namespace nrot.T590.Models
 {
     public class Patient
     {

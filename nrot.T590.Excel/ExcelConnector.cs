@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Data.OleDb;
 using System.Text;
 using System.Threading.Tasks;
-using nrot.T590.Excel.Models;
+using nrot.T590.Models;
 
 namespace nrot.T590.Excel
 {
@@ -55,34 +55,38 @@ namespace nrot.T590.Excel
 
                 await conn.OpenAsync();
 
-                var cmd = new OleDbCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT * FROM [Patienten$]";
+                var cmd = new OleDbCommand
+                {
+                    Connection = conn,
+                    CommandText = "SELECT * FROM [Patienten$]"
+                };
 
                 var reader = await cmd.ExecuteReaderAsync();
 
                 while (reader.Read())
                 {
-                    patients.Add(new Patient
-                    {
-                        Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader["Name"].ToString(),
-                        Vorname = reader["Vorname"].ToString(),
-                        Strasse = reader["Strasse"].ToString(),
-                        Plz = Convert.ToInt32(reader["Plz"]),
-                        Ort = reader["Ort"].ToString(),
-                        //Geburtsdatum = Convert.ToDateTime(reader["Geburtsdatum"]),
-                        Geburtsdatum = (DateTime?) reader["Geburtsdatum"],
-                        Geschlecht = Convert.ToChar(reader["Geschlecht"]).Equals('m') ? GeschlechtType.M : GeschlechtType.W,
-                        PatientenNr = reader["PatientenNr"].ToString(),
-                        AhvNr = reader["AhvNr"].ToString(),
-                        VekaNr = reader["VekaNr"].ToString(),
-                        VersichertenNr = reader["VersichertenNr"].ToString(),
-                        Kanton = reader["Kanton"].ToString(),
-                        Kopie = Convert.ToBoolean(reader["Kopie"]),
-                        VerguetungsArt = CastVerguetungsArt(reader["VerguetungsArt"]),
-                        VertragsNr = reader["VertragsNr"].ToString()
-                    });
+                    var tempPatient = new Patient();
+                    tempPatient.Id = Convert.ToInt32(reader["Id"]);
+                    tempPatient.Name = reader["Name"].ToString();
+                    tempPatient.Vorname = reader["Vorname"].ToString();
+                    tempPatient.Strasse = reader["Strasse"].ToString();
+                    tempPatient.Plz = Convert.ToInt32(reader["Plz"]);
+                    tempPatient.Ort = reader["Ort"].ToString();
+                    tempPatient.Geburtsdatum = Convert.ToDateTime(reader["Geburtsdatum"]);
+                    //tempPatient.Geburtsdatum = (DateTime?)reader["Geburtsdatum"];
+                    tempPatient.Geschlecht = Convert.ToString(reader["Geschlecht"]).ToUpper().Equals("M")
+                        ? GeschlechtType.M
+                        : GeschlechtType.W;
+                    tempPatient.PatientenNr = reader["PatientenNr"].ToString();
+                    tempPatient.AhvNr = reader["AhvNr"].ToString();
+                    tempPatient.VekaNr = reader["VekaNr"].ToString();
+                    tempPatient.VersichertenNr = reader["VersichertenNr"].ToString();
+                    tempPatient.Kanton = reader["Kanton"].ToString();
+                    tempPatient.Kopie = Convert.ToBoolean(reader["Kopie"]);
+                    tempPatient.VerguetungsArt = CastVerguetungsArt(reader["VerguetungsArt"]);
+                    tempPatient.VertragsNr = reader["VertragsNr"].ToString();
+
+                    patients.Add(tempPatient);
                 }
 
                 reader.Close();
@@ -99,9 +103,10 @@ namespace nrot.T590.Excel
             }
         }
 
-        public async Task<bool> StorePatientRecordInExcelAsync(Patient patient)
+        //public async Task<bool> StorePatientRecordInExcelAsync(Patient patient)
+        public async Task StorePatientRecordInExcelAsync(Patient patient)
         {
-            var isSave = false;
+            //var isSave = false;
 
             if (patient.Id == 0)
             {
@@ -139,14 +144,7 @@ namespace nrot.T590.Excel
             cmd.Parameters["Ort"].IsNullable = false;
 
             //cmd.Parameters.Add("Geburtsdatum", OleDbType.Db).Value = patient.Geburtsdatum.ToString("mm/dd/yyyy");
-            if (patient.Geburtsdatum == null)
-            {
-                cmd.Parameters.AddWithValue("Geburtsdatum", patient.Geburtsdatum);
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("Geburtsdatum", new DateTime(patient.Geburtsdatum.Value.Year, patient.Geburtsdatum.Value.Month, patient.Geburtsdatum.Value.Day));
-            }
+            cmd.Parameters.AddWithValue("Geburtsdatum", new DateTime(patient.Geburtsdatum.Year, patient.Geburtsdatum.Month, patient.Geburtsdatum.Day));
             cmd.Parameters["Geburtsdatum"].IsNullable = true;
 
             cmd.Parameters.Add("Geschlecht", OleDbType.VarChar).Value = patient.Geschlecht.ToString();
@@ -167,11 +165,11 @@ namespace nrot.T590.Excel
             cmd.Parameters.Add("Kanton", OleDbType.VarChar).Value = patient.Kanton ?? Convert.DBNull;
             cmd.Parameters["Kanton"].IsNullable = true;
 
-            cmd.Parameters.Add("Kopie", OleDbType.Boolean).Value = patient.Kopie;
+            cmd.Parameters.Add("Kopie", OleDbType.VarChar).Value = patient.Kopie.ToString();
             cmd.Parameters["Kopie"].IsNullable = false;
-
+            
             cmd.Parameters.Add("VerguetungsArt", OleDbType.VarChar).Value = patient.VerguetungsArt.ToString();
-            cmd.Parameters["VerguetungsArt"].IsNullable = true;
+            cmd.Parameters["VerguetungsArt"].IsNullable = false;
 
             cmd.Parameters.Add("VertragsNr", OleDbType.VarChar).Value = patient.VertragsNr ?? Convert.DBNull;
             cmd.Parameters["VertragsNr"].IsNullable = true;
@@ -180,10 +178,12 @@ namespace nrot.T590.Excel
             {
                 await conn.OpenAsync();
 
-                if (await cmd.ExecuteNonQueryAsync() > 0)
-                {
-                    isSave = true;
-                }
+                await cmd.ExecuteNonQueryAsync();
+
+                //if (await cmd.ExecuteNonQueryAsync() > 0)
+                //{
+                //    isSave = true;
+                //}
             }
             catch (Exception ex)
             {
@@ -197,7 +197,7 @@ namespace nrot.T590.Excel
                 }
             }
 
-            return isSave;
+            //return isSave;
         }
 
         private async Task<int> GetNextPatientId()

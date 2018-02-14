@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:nrot.T590.Gui"
-        xmlns:models="clr-namespace:nrot.T590.Excel.Models;assembly=nrot.T590.Excel"
+        xmlns:models="clr-namespace:nrot.T590.Models;assembly=nrot.T590.Models"
         mc:Ignorable="d" 
         Title="MainWindow" Loaded="Window_Loaded">
     <!--Height="600" Width="800"-->
@@ -16,11 +16,29 @@
             <RowDefinition Height="40*"/>
             <RowDefinition Height="202*"/>
         </Grid.RowDefinitions>
-        <Label HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Row="0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="16" Foreground="Green" Content="Patientenliste &#10;Adelheid Schneiter" />
-        <Button Content="Generiere Rechnung"   
-                Name="BtnRefreshRecord" Grid.Row="0"  
-                FontSize="16" Click="btnRefreshRecord_Click" Margin="342,1,26,5"/>
-        <DataGrid Name="DataGridPatient" AutoGenerateColumns="False" ColumnWidth="*"  RowBackground="WhiteSmoke"  
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Patientenliste &#10;Adelheid Schneiter" 
+               Grid.Row="0" Grid.Column="0" 
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               FontWeight="Bold" FontSize="16" Foreground="Green" />
+        <Button Content="Aktualisieren" Name="BtnRefreshPatientsRecords" 
+                Grid.Row="0" Grid.Column="1"   
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                Click="BtnRefreshPatientsRecords_Click"
+                FontSize="16" />
+        <Button Content="Rechnung generieren" Name="BtnGenerateBill" 
+                Grid.Row="0" Grid.Column="2"   
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                Click="BtnGenerateBill_Click" 
+                FontSize="16" />
+        <DataGrid Name="DataGridPatient" AutoGenerateColumns="False" RowBackground="WhiteSmoke" Grid.ColumnSpan="3"
                   CellEditEnding="DataGridPatient_CellEditEnding" RowEditEnding="DataGridPatient_RowEditEnding"  
                   SelectionChanged="DataGridPatient_SelectionChanged" Grid.Row="1" Background="LightBlue">
             <DataGrid.Columns>

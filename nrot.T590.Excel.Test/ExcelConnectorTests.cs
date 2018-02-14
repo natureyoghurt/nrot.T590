@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using nrot.T590.Excel.Models;
+using nrot.T590.Models;
 
 namespace nrot.T590.Excel.Test
 {
@@ -47,7 +45,8 @@ namespace nrot.T590.Excel.Test
 
             var excel = new ExcelConnector(ExcelFilePath);
 
-            var res = await excel.StorePatientRecordInExcelAsync(patient);
+            //var res = await excel.StorePatientRecordInExcelAsync(patient);
+            await excel.StorePatientRecordInExcelAsync(patient);
         }
     }
 }

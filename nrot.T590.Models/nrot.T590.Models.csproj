@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{66F6311E-097B-43BD-9CD3-299527A244BD}</ProjectGuid>
+    <ProjectGuid>{3319C886-8D45-478D-BA2A-87661DC8CBC4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>nrot.T590.Excel</RootNamespace>
-    <AssemblyName>nrot.T590.Excel</AssemblyName>
+    <RootNamespace>nrot.T590.Models</RootNamespace>
+    <AssemblyName>nrot.T590.Models</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,14 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExcelConnector.cs" />
+    <Compile Include="BehandlungsgrundType.cs" />
+    <Compile Include="GeschlechtType.cs" />
+    <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\nrot.T590.Models\nrot.T590.Models.csproj">
-      <Project>{3319c886-8d45-478d-ba2a-87661dc8cbc4}</Project>
-      <Name>nrot.T590.Models</Name>
-    </ProjectReference>
+    <Compile Include="VerguetungsartType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

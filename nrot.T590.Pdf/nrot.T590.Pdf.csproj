@@ -76,5 +76,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\nrot.T590.Models\nrot.T590.Models.csproj">
+      <Project>{3319C886-8D45-478D-BA2A-87661DC8CBC4}</Project>
+      <Name>nrot.T590.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

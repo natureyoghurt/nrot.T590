@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using nrot.T590.Models;
 
 namespace nrot.T590.Pdf.Test
 {
@@ -14,6 +16,32 @@ namespace nrot.T590.Pdf.Test
         {
             //var fields = PdfConnector.GetPdfFields(PdfFilePath2, PdfOutputPath);
             PdfConnector.GetPdfFields(PdfFilePath2, PdfOutputPath);
+        }
+
+        [TestMethod]
+        public void GenerateBillTest()
+        {
+            var patient = new Patient
+            {
+                Id = 1,
+                Name = "Muster",
+                Vorname = "Hans",
+                Strasse = "Musterstrasse 33",
+                Plz = 3333,
+                Ort = "Musterdorf",
+                Geburtsdatum = new DateTime(1999, 9, 9),
+                Geschlecht = GeschlechtType.M,
+                PatientenNr = "PatientNr_100001",
+                AhvNr = "AhvNr_100001",
+                VekaNr = "VekaNr_100001",
+                VersichertenNr = "VersichertenNr_100001",
+                Kanton = "SG",
+                Kopie = true,
+                VerguetungsArt = VerguetungsartType.Tg,
+                VertragsNr = "VertragsNr_100001"
+            };
+
+            PdfConnector.GenerateBill(patient);
         }
     }
 }

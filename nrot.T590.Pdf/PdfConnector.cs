@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using nrot.T590.Models;
 using Spire.Pdf.Widget;
 
 namespace nrot.T590.Pdf
@@ -33,6 +34,11 @@ namespace nrot.T590.Pdf
             }
 
             doc.SaveToFile(timedPdfTargetPath, FileFormat.PDF);
+        }
+
+        public static void GenerateBill(Patient patient)
+        {
+            throw new NotImplementedException();
         }
     }
 }
