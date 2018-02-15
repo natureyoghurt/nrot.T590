@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T590.Gui", "nrot.T590.Gui\nrot.T590.Gui.csproj", "{7CD1A623-B105-4E40-BC4D-81C8B7EFB878}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T590.Pdf.Test", "nrot.T590.Pdf.Test\nrot.T590.Pdf.Test.csproj", "{1ADC9211-D97D-4CF7-84C6-92D08E8F5E52}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T590.Models", "nrot.T590.Models\nrot.T590.Models.csproj", "{3319C886-8D45-478D-BA2A-87661DC8CBC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T560.Access", "nrot.T560.Access\nrot.T560.Access.csproj", "{FCA577BF-142A-441D-B2A1-21F8AEEEAC01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nrot.T560.Access.Test", "nrot.T560.Access.Test\nrot.T560.Access.Test.csproj", "{CA502C25-B31B-4230-BF77-DBF9EAE31865}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{3319C886-8D45-478D-BA2A-87661DC8CBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3319C886-8D45-478D-BA2A-87661DC8CBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3319C886-8D45-478D-BA2A-87661DC8CBC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCA577BF-142A-441D-B2A1-21F8AEEEAC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA577BF-142A-441D-B2A1-21F8AEEEAC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA577BF-142A-441D-B2A1-21F8AEEEAC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA577BF-142A-441D-B2A1-21F8AEEEAC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA502C25-B31B-4230-BF77-DBF9EAE31865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA502C25-B31B-4230-BF77-DBF9EAE31865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA502C25-B31B-4230-BF77-DBF9EAE31865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA502C25-B31B-4230-BF77-DBF9EAE31865}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
