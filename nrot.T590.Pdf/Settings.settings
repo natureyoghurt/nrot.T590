@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="nrot.T590.Pdf" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PdfTemplateFileName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Rechnungsformular_KM_d-v2.3.18.pdf</Value>
+    </Setting>
+    <Setting Name="CustomerRootDir" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\temp\nrot.T590\Kunden</Value>
+    </Setting>
+    <Setting Name="RsGlnNr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">*RsGlnNr*</Value>
+    </Setting>
+    <Setting Name="RsName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Adelheid Schneiter</Value>
+    </Setting>
+    <Setting Name="RsEMail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">*RsEMail*</Value>
+    </Setting>
+    <Setting Name="RsTel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">*RsTel*</Value>
+    </Setting>
+    <Setting Name="RsZsrNr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">*RsZsrNr*</Value>
+    </Setting>
+    <Setting Name="RsStrasse" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Sonnenhofstrasse 6</Value>
+    </Setting>
+    <Setting Name="RsPlz" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">9621</Value>
+    </Setting>
+    <Setting Name="RsOrt" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Oberhelfenschwil</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

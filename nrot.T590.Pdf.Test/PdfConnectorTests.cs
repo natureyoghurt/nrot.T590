@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using nrot.T590.Models;
 
@@ -15,7 +16,9 @@ namespace nrot.T590.Pdf.Test
         public void GetPdfFieldsTest()
         {
             //var fields = PdfConnector.GetPdfFields(PdfFilePath2, PdfOutputPath);
-            PdfConnector.GetPdfFields(PdfFilePath2, PdfOutputPath);
+            var fieldsValuesList = PdfConnector.GetPdfFields(PdfFilePath2, PdfOutputPath);
+
+            Thread.Sleep(10000);
         }
 
         [TestMethod]

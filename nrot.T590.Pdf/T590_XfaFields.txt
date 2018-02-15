@@ -1,0 +1,144 @@
+request[0].Logo[0]																		,
+request[0].Physio[0].Ueberschrift[0].TP_TG[0]											,
+request[0].Physio[0].Ueberschrift[0].Bezeichnung[0]										,
+request[0].Physio[0].Ueberschrift[0].Sprache[0]											,
+request[0].Physio[0].Kopf[0].Dokument_ID[0]												, 1518425869  12.02.2018 09:57:49
+request[0].Physio[0].Kopf[0].Rechnungssteller_EAN[0]									, RsGlnNr
+request[0].Physio[0].Kopf[0].Rechnungssteller_Namen[0]									, RsName
+request[0].Physio[0].Kopf[0].Rechnungssteller_Email[0]									, RsEMail
+request[0].Physio[0].Kopf[0].Rechnungssteller_Telefon[0]								, RsTel
+request[0].Physio[0].Kopf[0].Rechnungssteller_Fax[0]									, 
+request[0].Physio[0].Kopf[0].Rechnungssteller_ZSR[0]									, RsZsrNr
+request[0].Physio[0].Kopf[0].Rechnungssteller_Strasse[0]								, RsStrasse
+request[0].Physio[0].Kopf[0].Rechnungssteller_PLZ[0]									, RsPlz
+request[0].Physio[0].Kopf[0].Rechnungssteller_Ort[0]									, RsOrt
+request[0].Physio[0].Kopf[0].Leistungserbringer_EAN[0]									, LeGlnNr
+request[0].Physio[0].Kopf[0].Leistungserbringer_Namen[0]								, LeName
+request[0].Physio[0].Kopf[0].Leistungserbringer_Email[0]								, LeEMail
+request[0].Physio[0].Kopf[0].Leistungserbringer_Telefon[0]								, LeTel
+request[0].Physio[0].Kopf[0].Leistungserbringer_Fax[0]									, 
+request[0].Physio[0].Kopf[0].Leistungserbringer_ZSR[0]									, LeZsrNr
+request[0].Physio[0].Kopf[0].Leistungserbringer_Strasse[0]								, LeStrasse
+request[0].Physio[0].Kopf[0].Leistungserbringer_PLZ[0]									, LePlz
+request[0].Physio[0].Kopf[0].Leistungserbringer_Ort[0]									, LeOrt
+request[0].Physio[0].Patient[0].Name[0]													, PaName
+request[0].Physio[0].Patient[0].Vorname[0]												, PaVorname
+request[0].Physio[0].Patient[0].Strasse[0]												, PaStrasse
+request[0].Physio[0].Patient[0].PLZ[0]													, PaPlz
+request[0].Physio[0].Patient[0].Ort[0]													, PaOrt
+request[0].Physio[0].Patient[0].F_Helper[0]												, 
+request[0].Physio[0].Patient[0].Unfallnummer[0]											, PaPaNr
+request[0].Physio[0].Patient[0].AHV_Nr[0]												, PaAhvNr
+request[0].Physio[0].Patient[0].VeKa_Nr[0]												, PaVekaNr
+request[0].Physio[0].Patient[0].Versicherten_Nr[0]										, PaVersNr
+request[0].Physio[0].Patient[0].Vertrags_Nr[0]											, PaVertrNr
+request[0].Physio[0].Patient[0].RM_Helper[0]											, 
+request[0].Physio[0].Patient[0].KoGu_Nummer[0]											, 
+request[0].Physio[0].Patient[0].Rech_Nummer[0]											, 1518425869  12.02.2018 09:57:49
+request[0].Physio[0].Patient[0].Mahn_Nummer[0]											, 
+request[0].Physio[0].Patient[0].Behandlung_von[0]										, 
+request[0].Physio[0].Patient[0].Behandlung_bis[0]										, 
+request[0].Physio[0].Patient[0].Betriebs_Nr[0]											, 
+request[0].Physio[0].Patient[0].Betriebs_Namen[0]										, 
+request[0].Physio[0].Patient[0].Rolle[0]												, Komplementärmedizin
+request[0].Physio[0].Patient[0].EAN_Versicherung[0]										, 
+request[0].Physio[0].Patient[0].Insurance_Adresse1[0]									, 
+request[0].Physio[0].Patient[0].Insurance_Adresse2[0]									, 
+request[0].Physio[0].Patient[0].Insurance_Adresse3[0]									, 
+request[0].Physio[0].Patient[0].Insurance_Adresse4[0]									, 
+request[0].Physio[0].Patient[0].Insurance_Adresse5[0]									, 
+request[0].Physio[0].Patient[0].Insurance_Adresse6[0]									, 
+request[0].Physio[0].Arzt[0].verordnender_Arzt_GLN[0]									, 
+request[0].Physio[0].Arzt[0].verordnender_Arzt_ZSR[0]									, 
+request[0].Physio[0].Arzt[0].verordnender_Arzt_Namen[0]									, 
+request[0].Physio[0].Diagnose[0].Text[0]												, 
+request[0].Physio[0].TPW_Move[0].TPW[0].Therapeut[0]									, 
+request[0].Physio[0].TPW_Move[0].TPW[0].Bemerkungen[0].Bemerkungen[0]					, 
+request[0].Physio[0].TPW_Move[0].Leistungen[0].detail[0].Therapeut[0]					, 
+request[0].Physio[0].TPW_Move[0].Leistungen[0].detail[0].TPP[0]							, 
+request[0].Physio[0].TPW_Move[0].Leistungen[0].detail[0].LeistungsText[0]				, 
+request[0].Physio[0].IBAN[0].IBAN[0]													, 
+request[0].Physio[0].IBAN[0].Waehrung[0]												, CHF
+request[0].Physio[0].IBAN[0].MWST_Nr[0]													, 
+request[0].Physio[0].IBAN[0].ID[0]														, 
+request[0].Physio[0].IBAN[0].Konto2[0]													, 01
+request[0].Physio[0].IBAN[0].Konto6[0]													, 
+request[0].Physio[0].IBAN[0].Konto1[0]													, 
+request[0].Physio[0].IBAN[0].Zahlungsfrist[0]											, 30
+request[0].KoTr[0].Ueberschrift[0].TP_TG[0]												, 
+request[0].KoTr[0].Kopf[0].Dokument_ID[0]												, 1518425869  12.02.2018 09:57:49
+request[0].KoTr[0].Kopf[0].Rechnungssteller_EAN[0]										, RsGlnNr
+request[0].KoTr[0].Kopf[0].Rechnungssteller_Namen[0]									, RsName
+request[0].KoTr[0].Kopf[0].Rechnungssteller_Email[0]									, RsEMail
+request[0].KoTr[0].Kopf[0].Rechnungssteller_Telefon[0]									, RsTel
+request[0].KoTr[0].Kopf[0].Rechnungssteller_Fax[0]										, 
+request[0].KoTr[0].Kopf[0].Rechnungssteller_ZSR[0]										, RsZsrNr
+request[0].KoTr[0].Kopf[0].Rechnungssteller_Adresse[0]									, RsStrasse RsPlz RsOrt
+request[0].KoTr[0].Kopf[0].Leistungserbringer_EAN[0]									, LeGlnNr
+request[0].KoTr[0].Kopf[0].Leistungserbringer_Namen[0]									, LeName
+request[0].KoTr[0].Kopf[0].Leistungserbringer_Email[0]									, LeEMail
+request[0].KoTr[0].Kopf[0].Leistungserbringer_Telefon[0]								, LeTel
+request[0].KoTr[0].Kopf[0].Leistungserbringer_Fax[0]									, 
+request[0].KoTr[0].Kopf[0].Leistungserbringer_ZSR[0]									, LeZsrNr
+request[0].KoTr[0].Kopf[0].Leistungserbringer_Adresse[0]								, LeStrasse LePlz LeOrt
+request[0].KoTr[0].Patient[0].Name[0]													, PaName
+request[0].KoTr[0].Patient[0].Vorname[0]												, PaVorname
+request[0].KoTr[0].Patient[0].Strasse[0]												, PaStrasse
+request[0].KoTr[0].Patient[0].PLZ[0]													, PaPlz
+request[0].KoTr[0].Patient[0].Ort[0]													, PaOrt
+request[0].KoTr[0].Patient[0].Gesetz[0]													, VVG
+request[0].KoTr[0].Patient[0].Geschlecht[0]												, 
+request[0].KoTr[0].Patient[0].F_Helper[0]												, 
+request[0].KoTr[0].Patient[0].Unfallnummer_KoTr[0]										, PaPaNr
+request[0].KoTr[0].Patient[0].AHV_Nr[0]													, PaAhvNr
+request[0].KoTr[0].Patient[0].VeKa_Nr[0]												, PaVekaNr
+request[0].KoTr[0].Patient[0].Versicherten_Nr_KoTr[0]									, PaVersNr
+request[0].KoTr[0].Patient[0].Kanton[0]													, 
+request[0].KoTr[0].Patient[0].Rechnungskopie[0]											, Nein
+request[0].KoTr[0].Patient[0].Vergütungsart[0]											, TG
+request[0].KoTr[0].Patient[0].Vertragsnummer[0]											, PaVertrNr
+request[0].KoTr[0].Patient[0].RM_Helper[0]												, 
+request[0].KoTr[0].Patient[0].Behandlung_von[0]											, 
+request[0].KoTr[0].Patient[0].Behandlung_bis[0]											, 
+request[0].KoTr[0].Patient[0].Betriebs_Nr[0]											, 
+request[0].KoTr[0].Patient[0].Betriebs_Namen[0]											, 
+request[0].KoTr[0].Patient[0].Rolle[0]													, Komplementärmedizin
+request[0].KoTr[0].Patient[0].EAN_Versicherung[0]										, 
+request[0].KoTr[0].Patient[0].Insurance_Adresse1[0]										, 
+request[0].KoTr[0].Patient[0].Insurance_Adresse2[0]										, 
+request[0].KoTr[0].Patient[0].Insurance_Adresse3[0]										, 
+request[0].KoTr[0].Patient[0].Insurance_Adresse4[0]										, 
+request[0].KoTr[0].Patient[0].Insurance_Adresse5[0]										, 
+request[0].KoTr[0].Patient[0].Insurance_Adresse6[0]										, 
+request[0].KoTr[0].Patient[0].KoGu_Nummer[0]											, 
+request[0].KoTr[0].Patient[0].Rech_Nummer[0]											, 1518425869  12.02.2018 09:57:49
+request[0].KoTr[0].Patient[0].Mahn_Nummer[0]											, 
+request[0].KoTr[0].Patient[0].Behandlungsgrund[0]										, Krankheit
+request[0].KoTr[0].Arzt[0].verordnender_Arzt[0]											, 
+request[0].KoTr[0].Diagnose[0].Typ[0]													, 
+request[0].KoTr[0].Diagnose[0].Text[0]													, 
+request[0].KoTr[0].Befund_TF[0].TPW_Move[0].TPW[0].Therapeut[0]							, 
+request[0].KoTr[0].Befund_TF[0].TPW_Move[0].TPW[0].Therapie[0]							, 
+request[0].KoTr[0].Befund_TF[0].TPW_Move[0].TPW[0].Bemerkungen[0].Bemerkungen[0]		, 
+request[0].KoTr[0].Befund_TF[0].TPW_Move[0].Leistungen[0].detail[0].Tarif[0]			, 
+request[0].KoTr[0].Befund_TF[0].TPW_Move[0].Leistungen[0].detail[0].Tarifziffer[0]		, 
+request[0].KoTr[0].Befund_TF[0].TPW_Move[0].Leistungen[0].detail[0].LeistungsText[0]	, 
+request[0].KoTr[0].IBAN[0].MWST_Nr[0]													, 
+request[0].KoTr[0].IBAN[0].Waehrung[0]													, CHF
+request[0].KoTr[0].IBAN[0].IBAN[0]														, 
+request[0].KoTr[0].IBAN[0].Zahlungsfrist[0]												, Zahlbar innert 30 Tagen rein netto
+request[0].KoTr[0].BESR[0].ID[0]														, 
+request[0].KoTr[0].BESR[0].Konto[0]														, 
+request[0].KoTr[0].BESR[0].BESR[0]														, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse1_l[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse2_l[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse3_l[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse4_l[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse5_l[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse6_l[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse1_r[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse2_r[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse3_r[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse4_r[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse5_r[0]							, 
+request[0].Deckblatt[0].Deckblatt_TF[0].Insurance_Adresse6_r[0]							, 
